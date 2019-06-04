@@ -19,7 +19,4 @@ consign()
     .include('./app/routes')
     .into(app);
 
-process.env.API = "";
-process.env.NODE_ENV = "DEV";
-
 module.exports = app;
