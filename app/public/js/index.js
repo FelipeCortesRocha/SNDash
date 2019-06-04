@@ -223,6 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
         showLoading();
         $("#container").classList.add("hide");
         $("#txtBusca").value = '';
+        $("#txtBusca").disabled = true;
+        $('#btnBusca').disabled = true;
         fetch('/search', {
                 method: 'POST',
                 headers: {
@@ -233,6 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(resp => resp.json())
             .then(data => {
+                $("#txtBusca").disabled = false;
+                $('#btnBusca').disabled = false;
                 hideLoading();
                 $('#searchTitle').textContent = `Busca: ${busca}`;
                 populateScreen(data);
