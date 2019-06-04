@@ -1,18 +1,18 @@
 {
-    "name": "SNMap",
+    "name": "SNDash",
     "version": "1.0.0",
-    "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+    "description": "Projeto para faculdade, disciplina de Laboratório de Software e Projetos.",
     "main": "index.js",
     "scripts": {
         "start": "node app"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/XFelipeXCortesX/SNMap.git"
+        "url": "git+https://github.com/XFelipeXCortesX/SNDash.git"
     },
     "author": "",
     "license": "ISC",
-    "homepage": "https://github.com/XFelipeXCortesX/SNMap.git",
+    "homepage": "https://github.com/XFelipeXCortesX/SNDash.git",
     "dependencies": {
         "consign": "^0.1.6",
         "dotenv": "^8.0.0",
