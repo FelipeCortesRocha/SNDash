@@ -1,0 +1,92 @@
+{{> head }}
+
+<body>
+
+  {{!-- <div id="loading" class="hide">
+    <div class="preloader-wrapper big active" style="margin-top: 50vh">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+
+
+  <nav id="navbar">
+    <div class="nav-wrapper row" id="divNav">
+      <div  class="col s3" style="display: flex">
+        <span id="logoSN">SNDash</span>
+        <i class="material-icons hide-on-small-only">insert_chart</i>
+      </div>
+      <div class="col s7"><input placeholder="Digite aqui sua busca" id="txtBusca" type="text"></div>
+      {{!-- <div class="input-field col m2 s4" style="margin-left: 0px">
+        <select id="selectRedes">
+          <option value="" selected>Todas</option>
+          <option value="twitter">Twitter</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+        </select>
+      </div> --}}
+      <div class="col s2" style="height: 100%; text-align: center"><button id="btnBusca" class="waves-effect waves-light btn"><i class="material-icons" style="line-height: 45px">search</i></button></div>
+    </div>
+  </nav>
+
+  <div id="initialLottie" class="divLottie">
+    <h2 class="lottieMsg">Bem vindo ao SNDash! <br> Busque sobre os assuntos que deseja separando eles por virgula</h2>
+    <div id="openLottie" class="lottie"></div>
+  </div>
+  <div id="loadingLottie" class="divLottie">
+    <h2 class="lottieMsg">Buscando e analisando informações... <br> Por favor, aguarde um momento</h2>
+    <div id="loading" class="lottie"></div>
+  </div>
+  <div id="container">
+    <div class="resultHeader row">
+      <h2 class="col s6" id="searchTitle"></h2>
+      <h2 class="col s6" id="totalResult"></h2>
+    </div>
+    <div class="row line"> 
+        <div class="col m4 push-m4 s12 chartDiv"><canvas id="pieChart" class="chart"></canvas></div>
+        <div class="col m4 pull-m4 s12 chartDiv"><canvas id="lineChart" class="chart"></canvas></div>
+        <div class="col m4 s12 tableDiv">
+          <div class="table">
+            <p id="txtNoLocation" class="center-align hide">Os tweets analisádos não continham localização.</p>
+            <table id="tableLocations" class="striped hide">
+              <thead>
+                <tr>
+                    <th>Local</th>
+                    <th>Publicações</th>
+                </tr>
+              </thead>
+
+              <tbody id="tableBody">
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+    </div>
+    <div class="row line"> 
+       <div id="divTweets" class="col m6 s12" style="height: 100%">
+          <div class="cartao">
+            <span class="card-title">Última publicação positiva</span>
+            <p id="txtPositive" class="card-text"></p>
+            <div id="divDataPositive" clss="hide" style="display: flex"><p id="txtPositiveData" class="data"></p><a id="linkPositive" target="_blank" href="" class="link">Ver publicação</a></div>
+          </div>
+          <div class="cartao">
+            <span class="card-title">Última publicação negativa</span>
+            <p id="txtNegative" class="card-text"></p>
+            <div id="divDataNegative" clss="hide" style="display: flex"><p id="txtNegativeData" class="data"></p><a id="linkNegative" target="_blank" href="" class="link">Ver publicação</a></div>
+          </div>
+        </div>
+       <div id="map" class="col m6 s12"></div>
+    </div>
+  </div>
+  {{> scripts }}
+</body>

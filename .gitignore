@@ -1,0 +1,7 @@
+node_modules
+config
+build
+npm-debug.log
+*.bat
+.env
+.DS_Store

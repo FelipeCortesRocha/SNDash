@@ -1,0 +1,27 @@
+{
+    "name": "SNMap",
+    "version": "1.0.0",
+    "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/XFelipeXCortesX/SNMap.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://github.com/XFelipeXCortesX/SNMap.git",
+    "dependencies": {
+        "consign": "^0.1.6",
+        "dotenv": "^8.0.0",
+        "express": "^4.16.3",
+        "express-validator": "^5.3.0",
+        "hbs": "^4.0.4",
+        "neo4j-driver": "^1.7.3",
+        "request": "^2.87.0",
+        "twit": "^2.2.11",
+        "twitter": "^1.7.1"
+    }
+}
