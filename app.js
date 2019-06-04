@@ -6,7 +6,7 @@ app.listen(porta, () => {
 
 	console.log("|----------------------------------------------------------|");
 	console.log(" ");
-	console.log(`|             SNMap rodando na porta ${porta}                  |`);
+	console.log(`|             SNDash rodando na porta ${porta}                 |`);
 	console.log(" ");
 	console.log("|----------------------------------------------------------|");
 });
