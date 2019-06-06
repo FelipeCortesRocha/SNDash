@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         `);
 
                     return html += `
-                    <tr onClick="markers[${index}].togglePopup()" style="cursor: pointer">
+                    <tr onClick="markers[${index}].togglePopup()" class="location" style="cursor: pointer">
                         <td>${location.full_name}</td>
                         <td>${location.positives + location.negatives + location.neutrals}</td>
                     </tr>
@@ -245,6 +245,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(erro)
             });
     }
+
+    $('#tableLocations').addEventListener('click', () => {
+        window.scrollTo(0,document.body.scrollHeight);
+    })
 
     $('#btnBusca').addEventListener('click', () => {
         executarBusca();

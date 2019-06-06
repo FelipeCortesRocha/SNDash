@@ -7,10 +7,16 @@ let positiveWords = []
 let negativeWords = []
 let str
 
+const convertDate = (inputFormat) => {
+    const pad = (s) => (s < 10) ? '0' + s : s;
+    let d = new Date(inputFormat);
+    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+}
+
 const formatTweet = (tweet) => {
     let date = new Date(tweet.created_at)
     return {
-        created_at: `${date.toLocaleDateString()} - ${date.toLocaleTimeString()}`,
+        created_at: `${convertDate(date)} - ${date.toLocaleTimeString('pt-BR')}`,
         text: tweet.full_text,
         url: `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
     }
@@ -148,8 +154,8 @@ const checkTweets = tweets => {
 
         const addTimeline = (analise, tweet, type) => {
             let data = new Date(tweet.created_at);
-            if (!analise.timeline.labels.includes(data.toLocaleDateString())) {
-                analise.timeline.labels.push(data.toLocaleDateString());
+            if (!analise.timeline.labels.includes(convertDate(data))) {
+                analise.timeline.labels.push(convertDate(data));
                 analise.timeline.neutrals[analise.timeline.labels.length - 1] = 0;
                 analise.timeline.positives[analise.timeline.labels.length - 1] = 0;
                 analise.timeline.negatives[analise.timeline.labels.length - 1] = 0;
