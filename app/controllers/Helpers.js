@@ -10,7 +10,7 @@ let str
 const convertDate = (inputFormat) => {
     const pad = (s) => (s < 10) ? '0' + s : s;
     let d = new Date(inputFormat);
-    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+    return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
 }
 
 const formatTweet = (tweet) => {
@@ -143,12 +143,8 @@ const checkTweets = tweets => {
         tweets.sort((a, b) => {
             let aDate = new Date(a.created_at);
             let bDate = new Date(b.created_at);
-            if (aDate < bDate) {
-                return -1;
-            }
-            if (aDate > bDate) {
-                return 1;
-            }
+            if (aDate < bDate) return -1;
+            if (aDate > bDate) return 1;
             return 0;
         })
 
@@ -195,27 +191,43 @@ const checkTweets = tweets => {
             return false;
         }
 
+        // Reduce para gerar o objeto da análise
         let result = tweets.reduce((analise, tweet) => {
 
+            // Busca matchs de palavras chave
             let sentiment = checkSentiment(tweet.full_text);
 
+            // Verifica se não encontrou, ou se a quantidade de palavras negativas e positivas é igual
             if (sentiment.totalWordsFound == 0 || sentiment.negativeRate == sentiment.positiveRate) {
+                // Adiciona ao contador de neutros
                 analise.neutralTweets++;
+                // Adiciona a linha do tempo positiva do dia da publicação
                 checkLocation(analise, tweet, 'neutrals');
+                // Adiciona a linha do tempo neutra do dia da publicação
                 addTimeline(analise, tweet, 'neutrals');
             }
 
+            // Verifica se encontrou mais positivas do que negativas
             if (sentiment.positiveRate > sentiment.negativeRate) {
+                // Adiciona ao contador de positivos
                 analise.positiveTweets++;
+                // Verifica se a publicação tem localização
                 checkLocation(analise, tweet, 'positives');
+                // Adiciona a linha do tempo positiva do dia da publicação
                 addTimeline(analise, tweet, 'positives');
+                // Coloca essa publicação como ultima positiva encontrada
                 analise.lastPositive = formatTweet(tweet);
             }
 
+            // Verifica se encontrou mais negativa do que positivas
             if (sentiment.negativeRate > sentiment.positiveRate) {
+                // Adiciona ao contador de negativos
                 analise.negativeTweets++;
+                // Verifica se a publicação tem localização
                 checkLocation(analise, tweet, 'negatives');
+                // Adiciona a linha do tempo negativa do dia da publicação
                 addTimeline(analise, tweet, 'negatives');
+                // Coloca essa publicação como ultima negativa encontrada
                 analise.lastNegative = formatTweet(tweet);
             }
 
