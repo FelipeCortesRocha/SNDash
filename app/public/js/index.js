@@ -242,6 +242,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 populateScreen(data);
             })
             .catch(erro => {
+                $("#txtBusca").disabled = false;
+                $('#btnBusca').disabled = false;
+                $("#loadingLottie").classList.add("hide");
+                $("#initialLottie").classList.remove("hide");
+                swal.fire('Algo deu errado', 'É possível que a aplicação ainda esteja despertando, por favor tente novamente!');
                 console.log(erro)
             });
     }
