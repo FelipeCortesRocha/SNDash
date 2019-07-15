@@ -20,6 +20,7 @@
         "express-validator": "^5.3.0",
         "handlebars": "^4.1.2",
         "hbs": "^4.0.4",
+        "lodash": "^4.17.14",
         "neo4j-driver": "^1.7.5",
         "request": "^2.87.0",
         "twit": "^2.2.11",
